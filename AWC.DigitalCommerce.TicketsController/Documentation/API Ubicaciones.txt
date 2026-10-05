@@ -1,0 +1,5 @@
+GET https://ubicaciones.paginasweb.cr/provincias.json
+
+GET https://ubicaciones.paginasweb.cr/provincia/1/cantones.json
+
+GET https://ubicaciones.paginasweb.cr/provincia/1/canton/1/distritos.json

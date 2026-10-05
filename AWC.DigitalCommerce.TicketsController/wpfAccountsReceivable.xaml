@@ -1,0 +1,172 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfAccountsReceivable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="500" Width="1000" Background="DarkBlue"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Border BorderBrush="Fuchsia" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            
+            <!-- header -->
+            <Label Grid.Row="1" Grid.Column="1"
+                   Name="lblOpenAccounts"
+                   Foreground="Cyan"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="DemiBold"/>
+
+            <Label Grid.Row="1" Grid.Column="3"
+                   Name="lblPendingAccounts"
+                   Foreground="Cyan"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Content="CUENTAS PENDIENTES"
+                   FontSize="25"
+                   FontWeight="DemiBold"/>
+            
+            <!--left column-->
+            <DataGrid Grid.Row="2" Grid.Column="1"
+                      Name="dgTickets"
+                      Width="475" Height="370" Padding="5"
+                      FontSize="20" FontWeight="DemiBold"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible"
+                      IsReadOnly="True"
+                      Background="LightGray"
+                      RowBackground="LightCyan"
+                      AlternatingRowBackground="Cyan"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FECHA"
+                                        Width="110"
+                                       Binding="{Binding BirthDay}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="ID"
+                                        Width="65"
+                                        Binding="{Binding ID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CLIENTE"
+                                        Width="300"
+                                        Binding="{Binding CustomerID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- right column-->
+            <DataGrid Grid.Row="2" Grid.Column="3"
+                      Name="dgDailyClosing"
+                      Width="475" Height="370" Padding="5"
+                      FontSize="20" FontWeight="DemiBold"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible"
+                      IsReadOnly="True"
+                      Background="LightGray"
+                      RowBackground="LightCyan"
+                      AlternatingRowBackground="Cyan"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FECHA"
+                                        Width="110"
+                                       Binding="{Binding BirthDay}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="ID"
+                                        Width="65"
+                                        Binding="{Binding ID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CLIENTE"
+                                        Width="300"
+                                        Binding="{Binding CustomerID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- footer buttons-->
+            <Button Grid.Row="4" Grid.Column="1"
+                    Name="Close"
+                    Click="btn_Close"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    Width="200"
+                    Margin="5"
+                    HorizontalAlignment="Right"
+                    Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/cancel.png"
+                            Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="3"
+                    Name="Sync"
+                    Click="btn_Sync"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    Width="200"
+                    Margin="5"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/PriceList.png"
+                            Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="SINCRONIZAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

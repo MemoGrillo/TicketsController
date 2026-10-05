@@ -1,0 +1,68 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--========================================================-->
+    <!-- COLORES PRINCIPALES                                     -->
+    <!--========================================================-->
+
+    <Color x:Key="ColorPrimary">#1565C0</Color>
+    <Color x:Key="ColorPrimaryDark">#0D47A1</Color>
+    <Color x:Key="ColorAccent">#42A5F5</Color>
+
+    <!--========================================================-->
+    <!-- ESTADOS                                                 -->
+    <!--========================================================-->
+
+    <Color x:Key="ColorSuccess">#2E7D32</Color>
+    <Color x:Key="ColorWarning">#EF6C00</Color>
+    <Color x:Key="ColorDanger">#D32F2F</Color>
+
+    <!--========================================================-->
+    <!-- FONDOS                                                  -->
+    <!--========================================================-->
+
+    <Color x:Key="ColorBackground">#F3F5F7</Color>
+    <Color x:Key="ColorCard">#FFFFFF</Color>
+
+    <!--========================================================-->
+    <!-- TEXTO                                                   -->
+    <!--========================================================-->
+
+    <Color x:Key="ColorText">#212121</Color>
+    <Color x:Key="ColorSecondaryText">#757575</Color>
+
+    <!--========================================================-->
+    <!-- BORDES                                                  -->
+    <!--========================================================-->
+
+    <Color x:Key="ColorBorder">#DDDDDD</Color>
+
+    <!--========================================================-->
+    <!-- BRUSHES                                                 -->
+    <!--========================================================-->
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource ColorPrimary}" />
+
+    <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource ColorPrimaryDark}" />
+
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource ColorAccent}" />
+
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource ColorSuccess}" />
+
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource ColorDanger}" />
+
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource ColorWarning}" />
+
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource ColorBackground}" />
+
+    <SolidColorBrush x:Key="CardBrush" Color="{StaticResource ColorCard}" />
+
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource ColorText}" />
+
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource ColorSecondaryText}" />
+
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource ColorBorder}" />
+
+</ResourceDictionary>
+    

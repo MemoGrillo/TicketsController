@@ -1,0 +1,266 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ClientesFEView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
+             mc:Ignorable="d" FontFamily="Segoe UI" FontSize="14" Background="#F5F6F8">
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- PANEL SUPERIOR -->
+
+        <Border Grid.Row="0"
+                Background="White"
+                CornerRadius="8"
+                Padding="20">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Tipo -->
+
+                <TextBlock
+                    Text="Tipo identificación"
+                    VerticalAlignment="Center"/>
+
+                <ComboBox
+                    Grid.Column="1"
+                    Height="34"
+                    ItemsSource="{Binding TiposIdentificacion}"
+                    SelectedItem="{Binding Cliente.TipoIdentificacion}" />
+
+                <!-- Identificación -->
+
+                <TextBlock
+                    Grid.Column="3"
+                    Text="Identificación"
+                    VerticalAlignment="Center"/>
+
+                <TextBox
+                    Grid.Column="4"
+                    Height="34"
+                    Text="{Binding Cliente.Identificacion}" />
+
+                <!-- Nombre -->
+
+                <TextBlock
+                    Grid.Row="2"
+                    Text="Nombre / Razón Social"
+                    VerticalAlignment="Center"/>
+
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4"
+                    Height="34"
+                    Text="{Binding Cliente.Nombre}" />
+
+                <!-- Correo -->
+
+                <TextBlock
+                    Grid.Row="4"
+                    Text="Correo"/>
+
+                <TextBox
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Height="34"
+                    Text="{Binding Cliente.Correo}" />
+
+                <!-- Teléfono -->
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Text="Teléfono"/>
+
+                <TextBox
+                    Grid.Row="4"
+                    Grid.Column="4"
+                    Height="34"
+                    Text="{Binding Cliente.Telefono}" />
+
+                <!-- Ubicación -->
+
+                <TextBlock
+                    Grid.Row="6"
+                    Text="Provincia"/>
+
+                <ComboBox
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Height="34"
+                    ItemsSource="{Binding Provincias}"
+                    SelectedItem="{Binding ProvinciaSeleccionada}" />
+
+                <TextBlock
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    Text="Cantón"/>
+
+                <ComboBox
+                    Grid.Row="6"
+                    Grid.Column="4"
+                    Height="34"
+                    ItemsSource="{Binding Cantones}"
+                    SelectedItem="{Binding CantonSeleccionado}" />
+
+                <!-- Distrito -->
+
+                <TextBlock
+                    Grid.Row="8"
+                    Text="Distrito"/>
+
+                <ComboBox
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Height="34"
+                    ItemsSource="{Binding Distritos}"
+                    SelectedItem="{Binding DistritoSeleccionado}" />
+
+                <!-- Otras señas -->
+
+                <TextBlock
+                    Grid.Row="8"
+                    Grid.Column="3"
+                    Text="Otras señas"/>
+
+                <TextBox
+                    Grid.Row="8"
+                    Grid.Column="4"
+                    Height="70"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    Text="{Binding Cliente.OtrasSenas}" />
+
+            </Grid>
+
+        </Border>
+
+        <!-- PANEL INFERIOR -->
+
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="8"
+                Padding="15">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Botones -->
+
+                <StackPanel
+                    Orientation="Horizontal">
+
+                    <Button
+                        Width="100"
+                        Height="35"
+                        Margin="0,0,10,0"
+                        Content="Nuevo"
+                        Command="{Binding NuevoCommand}"/>
+
+                    <Button
+                        Width="100"
+                        Height="35"
+                        Margin="0,0,10,0"
+                        Content="Guardar"
+                        Command="{Binding GuardarCommand}"/>
+
+                    <Button
+                        Width="100"
+                        Height="35"
+                        Margin="0,0,10,0"
+                        Content="Cancelar"/>
+
+                    <Button
+                        Width="100"
+                        Height="35"
+                        Content="Eliminar"
+                        Command="{Binding EliminarCommand}"/>
+
+                </StackPanel>
+
+                <!-- Buscar -->
+
+                <TextBox
+                    Grid.Row="2"
+                    Width="350"
+                    Height="34"
+                    HorizontalAlignment="Left"
+                    Text="{Binding TextoBusqueda}" />
+
+                <!-- DataGrid -->
+
+                <DataGrid
+                    Grid.Row="4"
+                    ItemsSource="{Binding Clientes}"
+                    SelectedItem="{Binding ClienteSeleccionado}"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Header="Identificación"
+                            Binding="{Binding Identificacion}"
+                            Width="140"/>
+
+                        <DataGridTextColumn
+                            Header="Nombre"
+                            Binding="{Binding Nombre}"
+                            Width="250"/>
+
+                        <DataGridTextColumn
+                            Header="Correo"
+                            Binding="{Binding Correo}"
+                            Width="220"/>
+
+                        <DataGridTextColumn
+                            Header="Teléfono"
+                            Binding="{Binding Telefono}"
+                            Width="120"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

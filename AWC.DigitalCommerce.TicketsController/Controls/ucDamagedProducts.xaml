@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucDamagedProducts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="470" d:DesignWidth="550">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle"
+               TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="cBox_Providers_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ProviderName}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="cBox_ItemDescription_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--DATAGRID-->
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                    Grid.RowSpan="2" Grid.ColumnSpan="2"
+                    Orientation="Vertical">
+            <DataGrid Name="dgItemsList"
+                  Width="520"
+                  Height="370"
+                  FontSize="20"
+                  HorizontalAlignment="Left"
+                  FontWeight="DemiBold"
+                  IsReadOnly="True"
+                  VerticalAlignment="Top"
+                  VerticalScrollBarVisibility="Visible"
+                  Background="LightGray"
+                  RowBackground="LightCyan"
+                  AlternatingRowBackground="Cyan"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                    Width="75"
+                                    Binding="{Binding ID}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DESCRIPCIÓN DEL PRODUCTO"
+                                    Width="350"
+                                    Binding="{Binding ItemDescription}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                    <DataGridTextColumn Header="CANT"
+                                    Width="75"
+                                    Binding="{Binding ItemQty}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0 20 0 0">
+                <Button Name="btnAddProducts"
+                        Click="btn_AddProducts"
+                        Foreground="DarkBlue"
+                        Width="230"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Plus_sign.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="AGREGAR PRODUCTO"
+                                   VerticalAlignment="Center"
+                                   Margin="5"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnApply"
+                        Click="btn_Apply"
+                        Foreground="DarkBlue"
+                        Width="230"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        IsEnabled="False"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/38.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="SALVAR"
+                                   VerticalAlignment="Center"
+                                   Margin="5"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
